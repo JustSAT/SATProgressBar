@@ -13,6 +13,7 @@
 		AC97FF581D689A9700E5D5CF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC97FF561D689A9700E5D5CF /* Main.storyboard */; };
 		AC97FF5A1D689A9700E5D5CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC97FF591D689A9700E5D5CF /* Assets.xcassets */; };
 		AC97FF5D1D689A9700E5D5CF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC97FF5B1D689A9700E5D5CF /* LaunchScreen.storyboard */; };
+		AC97FF671D68EF9700E5D5CF /* SATProgressBar.m in Sources */ = {isa = PBXBuildFile; fileRef = AC97FF661D68EF9600E5D5CF /* SATProgressBar.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		AC97FF591D689A9700E5D5CF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AC97FF5C1D689A9700E5D5CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AC97FF5E1D689A9700E5D5CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AC97FF651D68EF9600E5D5CF /* SATProgressBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SATProgressBar.h; sourceTree = "<group>"; };
+		AC97FF661D68EF9600E5D5CF /* SATProgressBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SATProgressBar.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +61,7 @@
 		AC97FF4C1D689A9700E5D5CF /* DevAnimation */ = {
 			isa = PBXGroup;
 			children = (
+				AC97FF641D68EF6E00E5D5CF /* SATProgressBar */,
 				AC97FF501D689A9700E5D5CF /* AppDelegate.h */,
 				AC97FF511D689A9700E5D5CF /* AppDelegate.m */,
 				AC97FF531D689A9700E5D5CF /* ViewController.h */,
@@ -77,6 +81,15 @@
 				AC97FF4E1D689A9700E5D5CF /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		AC97FF641D68EF6E00E5D5CF /* SATProgressBar */ = {
+			isa = PBXGroup;
+			children = (
+				AC97FF651D68EF9600E5D5CF /* SATProgressBar.h */,
+				AC97FF661D68EF9600E5D5CF /* SATProgressBar.m */,
+			);
+			name = SATProgressBar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -110,6 +123,7 @@
 				TargetAttributes = {
 					AC97FF491D689A9700E5D5CF = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = ADS9SM6N7X;
 					};
 				};
 			};
@@ -150,6 +164,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC97FF551D689A9700E5D5CF /* ViewController.m in Sources */,
+				AC97FF671D68EF9700E5D5CF /* SATProgressBar.m in Sources */,
 				AC97FF521D689A9700E5D5CF /* AppDelegate.m in Sources */,
 				AC97FF4F1D689A9700E5D5CF /* main.m in Sources */,
 			);
@@ -263,10 +278,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = DevAnimation/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Mitk.DevAnimation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -274,10 +292,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = DevAnimation/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Mitk.DevAnimation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

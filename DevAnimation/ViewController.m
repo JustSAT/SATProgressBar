@@ -12,16 +12,34 @@
 
 @end
 
-@implementation ViewController
+@implementation ViewController {
+
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+
+
+}
+
+- (void)viewDidLayoutSubviews {
+    self.progress.backgroundColor = [[UIColor blueColor] colorWithAlphaComponent:0.3];
+    self.progress.progressColor = [[UIColor blueColor] colorWithAlphaComponent:0.3];
+    self.progress.minimumValue = 0;
+    self.progress.maximumValue = 150;
+
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+}
+- (IBAction)increase:(id)sender {
+    self.progress.value += 13;
+    
+}
+- (IBAction)decrease:(id)sender {
+    self.progress.value -= 11;
+    
 }
 
 @end

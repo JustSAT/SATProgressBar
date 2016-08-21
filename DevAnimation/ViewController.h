@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SATProgressBar.h"
 
 @interface ViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet SATProgressBar *progress;
 
 @end
 
