@@ -49,8 +49,17 @@
     self.maximumValue = 1;
     self.value = 0.0;
 
-    self.layer.cornerRadius = self.frame.size.height / 2;
+    self.borderRadius = 0;
+    self.progressBorderRadius = 0;
+
+    self.animationSpringDamping = 1.0;
+    self.animationSpringVelocity = 0.1;
+    self.animationType = UIViewAnimationCurveEaseInOut;
+
+    self.animated = NO;
+
     self.layer.masksToBounds = YES;
+    self.progressView.layer.masksToBounds = YES;
 
     //Init progress view
     progressView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 100, 0)];
@@ -115,37 +124,53 @@
 
 }
 
-- (CGFloat) currentWidthMultiplier{
+- (CGFloat)currentWidthMultiplier {
     if (self.maximumValue == 0) {
         self.maximumValue = 1;
     }
     CGFloat multiplier = (self.value - self.minimumValue) / (self.maximumValue - self.minimumValue);
-    NSLog(@"Min: %f", self.minimumValue);
-    NSLog(@"Val: %f", self.value);
-    NSLog(@"Max: %f", self.maximumValue);
-    NSLog(@"multiplier: %f", multiplier);
-    return self.frame.size.width *multiplier;
+    return self.frame.size.width * multiplier;
 }
 
 @synthesize value;
+
 - (void)setValue:(CGFloat)newValue {
     CGFloat resultVal = newValue;
-    if(newValue > self.maximumValue) {
+    if (newValue > self.maximumValue) {
         resultVal = self.maximumValue;
-    } else if(newValue < self.minimumValue) {
+    } else if (newValue < self.minimumValue) {
         resultVal = self.minimumValue;
     }
     value = resultVal;
     width.constant = [self currentWidthMultiplier];
-    [UIView animateWithDuration:0.3 delay:0 usingSpringWithDamping:0.3 initialSpringVelocity:1 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+    if (self.animated) {
+        [UIView animateWithDuration:0.3 delay:0 usingSpringWithDamping:self.animationSpringDamping initialSpringVelocity:self.animationSpringVelocity options:self.animationType animations:^{
+            [self layoutIfNeeded];
+        }                completion:nil];
+    } else {
         [self layoutIfNeeded];
-    } completion:nil];
+    }
 }
 
 @synthesize progressColor;
+
 - (void)setProgressColor:(UIColor *)newProgressColor {
     progressColor = newProgressColor;
     self.progressView.backgroundColor = progressColor;
+}
+
+@synthesize borderRadius;
+
+- (void)setBorderRadius:(CGFloat)newBorderRadius {
+    borderRadius = newBorderRadius;
+    self.layer.cornerRadius = newBorderRadius;
+}
+
+@synthesize progressBorderRadius;
+
+- (void)setProgressBorderRadius:(CGFloat)newProgressBorderRadius {
+    progressBorderRadius = newProgressBorderRadius;
+    self.progressView.layer.cornerRadius = newProgressBorderRadius;
 }
 
 @end

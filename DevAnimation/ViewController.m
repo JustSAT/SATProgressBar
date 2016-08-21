@@ -23,10 +23,14 @@
 }
 
 - (void)viewDidLayoutSubviews {
-    self.progress.backgroundColor = [[UIColor blueColor] colorWithAlphaComponent:0.3];
-    self.progress.progressColor = [[UIColor blueColor] colorWithAlphaComponent:0.3];
+    self.progress.backgroundColor = [[UIColor redColor] colorWithAlphaComponent:0.3];
+    self.progress.progressColor = [[UIColor redColor] colorWithAlphaComponent:0.4];
     self.progress.minimumValue = 0;
-    self.progress.maximumValue = 150;
+    self.progress.maximumValue = 100;
+    self.progress.progressBorderRadius = 2;
+    self.progress.borderRadius = 4;
+    self.progress.animated = YES;
+    self.progress.animationSpringDamping = 0.6;
 
 }
 
@@ -34,11 +38,11 @@
     [super didReceiveMemoryWarning];
 }
 - (IBAction)increase:(id)sender {
-    self.progress.value += 13;
+    self.progress.value += 10;
     
 }
 - (IBAction)decrease:(id)sender {
-    self.progress.value -= 11;
+    self.progress.value -= 10;
     
 }
 
